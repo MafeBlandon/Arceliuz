@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gracias por tu compra</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="icon" type="image/png" href="./../otros/logo_32x32-05.png">
+
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Silkscreen&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+
+
+
+		body {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+
+		/* para dispositivos móviles */
+		@media (max-width: 767px) {
+			body {
+				background-image: url("./../img/pizarra.jpg");
+				background-repeat: repeat;
+				background-size: 100%;
+				opacity: 1;
+			}
+
+			.half-black {
+				flex: 1;
+
+				background-color: rgb(150, 4, 4);
+			}
+
+			.half-white {
+				flex: 1;
+				background-image: url(./../img/pizarra.jpg);
+			}
+
+			.imag {
+				margin: 0;
+				width: 0;
+
+				align-items: 0;
+				height: 0;
+				margin-left: 0;
+				padding: 0;
+			}
+		}
+
+		/* para escritorio */
+		@media (min-width: 768px) {
+			body {
+				margin: 0;
+				padding: 0;
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.half-black {
+				flex: 1;
+
+				background-color: rgb(150, 4, 4);
+			}
+
+			.half-white {
+				flex: 1;
+				background-image: url(./../img/pizarra.jpg);
+			}
+
+			.imag {
+				margin: 0;
+				width: 15%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 30vh;
+				margin-left: 42%;
+				padding: 10px;
+			}
+		}
+
+		.card {
+			color: black;
+		}
+
+
+		input[type="text"],
+		input[type="tel"],
+		select,
+		#formaPago,
+		#comentario {
+			background-color: rgba(10, 10, 10, 0.7);
+			/* blanco con 70% de opacidad */
+			font-family: 'Poppins', sans-serif;
+		}
+
+
+		/* Estilo para el contenedor del mapa */
+		#map {
+			height: 200px;
+			width: 100;
+		}
+
+		.btn-producto {
+			height: 200px;
+			width: 100%;
+			background-size: cover;
+			background-position: center;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+		.btn {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			width: 60px;
+			height: 54px;
+			background-color: rgb(3, 153, 3);
+			border-radius: 100%;
+			text-align: center;
+			line-height: 60px;
+			color: white;
+			font-size: 24px;
+			text-decoration: none;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+
+		}
+
+		.btn:hover {
+			background-color: darkgreen;
+		}
+
+		.div-pedido {
+			width: 100%;
+
+		}
+
+		.button {
+			position: relative;
+		}
+
+		.button span {
+			position: absolute;
+			top: 5%;
+			right: 5%;
+		}
+
+		.alert {
+			display: none;
+			background-color: rgb(150, 4, 4);
+			color: #090707;
+			padding: 10px;
+			margin: 10px 0;
+		}
+
+		.flot {
+			/* background-color: rgb(255, 255, 255); */
+			padding: 10px 20px;
+			border-radius: 10px;
+			font-size: 1.2rem;
+		}
+
+		.contenido-primario {
+			margin-bottom: 90px;
+			/* Margen inferior igual a la altura del botón fijo */
+			/* Margen inferior igual a la altura del botón fijo */
+
+		}
+
+		.item-details {
+			display: none;
+		}
+
+		.botonDeProducto {
+			height: 2rem;
+			width: 2rem;
+		}
+
+		h1 {
+			color: rgb(150, 4, 4);
+			font-size: 54px;
+			margin: 0;
+			padding: 0;
+		}
+
+		h2 {
+			font-size: 38px;
+			margin: 0;
+			padding: 0;
+		}
+
+		.img {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 90vh;
+			width: 40px;
+			align-items: center;
+			max-width: 99%;
+			max-height: 99%;
+		}
+
+		.close-butto {
+			position: absolute;
+			font-family: 'Inter', sans-serif;
+
+
+			width: 128px;
+			height: 63px;
+
+
+			background-color: #A60606;
+			color: white;
+			font-size: 16px;
+
+			border-radius: 90px;
+
+
+		}
+
+		#volver {
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			width: 80px;
+			height: 80px;
+			color: #090707;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 60px;
+
+			font-size: 64px;
+			text-decoration: none;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+
+		}
+
+		#volver:hover {
+			color: rgb(100, 27, 0);
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="half-black">
+		<img class="imag" src="./../otros/LOGOhd.png" alt="">
+
+	</div>
+	<div class="half-white">
+		<div class="container mt-5">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center">
+					<div class="">
+						<h1>GRACIAS</h1>
+						<h2>POR TU COMPRA</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container mt-5">
+			<div class="row justify-content-center exito">
+				<div class="col-md-6 text-center">
+					<i class="fa fa-check fa-5x text-success mb-3"></i>
+					<p class="lead">Tu pedido fue todo un éxito.</p>
+					<!--<p>Puedes comunicarte con nosotros a través de nuestro WhatsApp:</p>-->
+					<a href="https://wa.me/+3506186772" class="btn ">
+						<img src="./../img/Digital_Glyph_Black.png" alt="" class="img-fluid img">
+					</a>
+				</div>
+			</div>
+
+			<div class="row mt-5 justify-content-center">
+				<div class="col-md-6 text-center">
+					<h5>Tu pedido estará listo en aproximadamente <span class="font-weight-bold" id="spanTiempo">🦄</span> minutos
+					</h5>
+					<h5>Con un total de $<span class="font-weight-bold" id="spanTotal">🐸</span></h5>
+				</div>
+			</div>
+
+			<div class="row mt-5 justify-content-center">
+				<div class="col-md-8 text-center">
+					<img src="./../otros/muneco.png" class="img-fluid rounded" alt="Imagen de michi dando un beso">
+				</div>
+			</div>
+		</div>
+
+
+		<a href="homeUsuario.html">
+			<span id="volver">&larr;
+			</span>
+		</a>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<!-- jQuery and Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="./../js/gracias.js"></script>
+
+
+
+</body>
+
+</html>

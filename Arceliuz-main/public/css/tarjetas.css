@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Silkscreen&display=swap');
+
+.tarjeta-color{
+	background-color:white;
+}
+
+.letra-popis{
+	font-family: 'Poppins', sans-serif;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	margin-top: 2rem;
+	font-size: 20px; 
+	font-weight: bold;
+	
+
+}
+.letra-popis-gris{
+	font-family: 'Poppins', sans-serif;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	margin-top: 2rem;
+	font-size: 18px; 
+	font-weight: bold;
+	color: rgb(179, 173, 173);
+}
+.letra-popis-gris-dos{
+	font-family: 'Poppins', sans-serif;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	margin-top: 0.5rem;
+	font-size: 18px; 
+	
+	color: rgb(179, 173, 173);
+	flex-basis: 50%;
+
+}
+
+
+.letra-popis-phone{
+	font-family: 'Poppins', sans-serif;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	margin-top: 2rem;
+	color: white;
+}
+.card-text-container {
+	
+  display: flex;
+  justify-content: flex-end;
+	
+}
+.card-text-container-dos {
+  display: flex;
+  justify-content: flex-end;
+	
+  justify-content: space-between;
+  align-items: center;
+	
+}
+.azul{
+	color: rgba(31, 31, 231, 0.744);
+}
+.card-text {
+  flex-basis: 50%;
+
+	font-family: 'Poppins', sans-serif; 
+	
+	font-size: 18px; 
+	
+	color: rgb(179, 173, 173);
+}
+.card-text-notas {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f8f8f8;
+	border-radius: 10px;
+}
+.card-text-notas-preparar {
+  border: 1px solid #f89708;
+  padding: 5px;
+  background-color: #f89708;
+  border-radius: 10px;
+  color: aliceblue;
+  width: 300px; /* Ajusta el valor del ancho aquí */
+}
+.card-text-notas-c {
+  border: 1px solid #3e9f11;
+  padding: 5px;
+  background-color: #3e9f11;
+  border-radius: 10px;
+  color: aliceblue;
+  width: 300px; /* Ajusta el valor del ancho aquí */
+}
+.card-text-notas-f {
+  border: 1px solid #d63836;
+  padding: 5px;
+  background-color: #d63836;
+  border-radius: 10px;
+  color: aliceblue;
+  width: 300px; /* Ajusta el valor del ancho aquí */
+}
+
+
+
+.card-text-hora {
+  flex-basis: 50%;
+	text-align: center;
+	font-family: 'Poppins', sans-serif; 
+	margin-top: 1rem;
+	font-size: 20px; 
+	font-weight: bold;
+	margin-right: 8px;
+	color: rgb(179, 173, 173);
+}
+.card-text-hora {
+  flex-basis: 50%;
+	text-align: center;
+	font-family: 'Poppins', sans-serif; 
+	margin-top: 1rem;
+	font-size: 20px; 
+	font-weight: bold;
+	margin-right: 8px;
+	color: rgb(179, 173, 173);
+}
+.card-text-pro {
+  flex-basis: 50%;
+	text-align: center;
+	font-family: 'Poppins', sans-serif; 
+
+	font-size: 50px; 
+	font-weight: bold;
+	margin-right: 8px;
+	color: rgb(179, 173, 173);
+}
+
+
+
+.status-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-select {
+  display: inline-flex;
+  align-items: center;
+  
+}
+
+.contenedor {
+ 
+	flex-grow: 1;
+  flex-shrink: 1;
+}
+
+
+
+@media (max-width: 767px) {
+  .card-text {
+		width: 100%; /* Ajusta el ancho máximo según tus necesidades */
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+@media (min-width: 768px) {
+  .card-text {
+		width: 100%; /* Ajusta el ancho máximo según tus necesidades */
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		
+	}
+}

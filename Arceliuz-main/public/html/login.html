@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login Page</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!--  CSS -->
+	<link rel="stylesheet" href="../css/login.css">
+	<!-- Iconos -->
+	<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	
+
+</head>
+
+<body>
+
+	<div class="login-page">
+		<div class="form">
+			<div>
+				<form class="login-form" id="login-form">
+					<label for="username-input" class="title"><b>Bienvenid@s</b></label>
+					<!--
+						<lord-icon
+						src="https://cdn.lordicon.com/imamsnbq.json"
+						trigger="hover"
+						colors="primary:#121331,secondary:#e83a30"
+						stroke="40"
+						style="width:250px;height:250px">
+					</lord-icon>
+					-->
+					<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+					<lord-icon
+						src="https://cdn.lordicon.com/imamsnbq.json"
+						trigger="loop"
+						delay="5500"
+						colors="primary:#121331,secondary:#e88c30"
+						style="width:250px;height:250px">
+					</lord-icon>
+					
+					
+					<input type="text" class="form-control" id="username-input" placeholder="Ingrese nombre de usuario">
+					<input type="password" class="form-control" id="password-input" placeholder="Ingrese  contraseña">
+					<label for="role-select"></label>
+							<select class="form-control" id="role-select">
+								<option selected>Elige un Rol</option>
+								<option value="domiciliario">Domiciliario</option>
+								<option value="admin">Administrador</option>
+								<option value="recepcion">Recepcion</option>
+								<option value="cocinero">Cocinero</option>
+							</select>
+							<br>
+					
+					<button type="button" onclick="mandarLogin()" class="btn btn-primary">Ingresar</button>
+	
+					<div class="btn_atras">
+						<a href="homeUsuario.html">
+						<button type="button">Regresar</button>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<!-- <script src="./../js/administracionDeTokenYUrl.js"></script> -->
+	<script src="./../js/urlApi.js"></script>
+
+	<script>
+		async function mandarLogin() {
+			let HOST_API = urlApi()
+			let HOST = urlHost()
+
+			const form = document.getElementById('login-form');
+			const usernameInput = document.getElementById('username-input');
+			const passwordInput = document.getElementById('password-input');
+			const roleSelect = document.getElementById('role-select');
+			const responseDiv = document.getElementById('response');
+
+
+			let data = {
+				username: String(usernameInput.value),
+				password: String(passwordInput.value),
+				role: String(roleSelect.value),
+			};
+
+			const res = await fetch(`${HOST_API}login`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			})
+
+			const login = await res.json()
+
+			console.log(login.body);
+
+			if (res.status == '200') {
+
+				const token = login.body.token
+				document.cookie = `token=${token}; Secure; SameSite=Strict`;
+				console.log(login.body);
+				localStorage.setItem('login-domi', JSON.stringify(login.body));
+
+				// Después de que el usuario inicie sesión, redirigirlo a la página anterior
+				window.location.href = `${HOST}home`;
+
+			} else {
+				alert('error al logearse', login)
+			}
+
+		}
+
+	</script>
+</body>
+
+</html>

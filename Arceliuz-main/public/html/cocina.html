@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+
+	<title>DomiPedidos</title>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/stylemenu.css">
+	<link rel="stylesheet" type="text/css" href="./../css/tarjetas.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="./../otros/logo_32x32-05.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="./../otros/logo_32x32-05.png"
+		autor="Hamburguesa iconos creados por Freepik - Flaticon">
+	<link rel="apple-touch-icon" sizes="180x180" href="./../otros/logo_32x32-05.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./../otros/logo_32x32-05.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./../otros/logo_32x32-05.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="stylesheet" type="text/css" href="./../css/recepcion.css" />
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-custom navbar-mainbg">
+		<a  href="#"><img  class="logoDomi" src="../img/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="html/recepcion.html">Pedidos</a>
+              
+				<li class="nav-item">
+					<a class="nav-link" href="html/login.html">Cerrar Sesion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+	<div class=" flex-grow-1   overflow-auto">
+		<!-- Contenedor para las tarjetas -->
+		<div id="hola" class="">
+			<div class="row" id="pedidosRow"></div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+	
+	<!-- funcion para validar el logeo y asiganar el token  -->
+	<script src="./../js/authentication.js"></script>
+	<script src="./../js/urlApi.js"></script>
+
+	<!-- <script src="./../js/administracionDeTokenYUrl.js"></script> -->
+	<!-- todas las funciones de la api -->
+	<script src="./../js/apiUtils.js"></script>
+
+	<script src="./../js/cocina.js"></script>
+	<script src="./../js/generarTargetas.js"></script>
+</body>
+
+</html>

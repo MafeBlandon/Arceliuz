@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario para enviar solicitud POST con cuerpo JSON</title>
+</head>
+
+<body>
+	<h1>Formulario para enviar solicitud POST con cuerpo JSON</h1>
+	<form>
+		<label for="type">Tipo:</label>
+		<select type="select" id="type" name="type" value="Adicion">
+			<option value="Adicion">Adicion</option>
+			<option value="Producto">Producto</option>
+		</select>
+		<br><br>
+		<label for="name">Nombre:</label>
+		<input type="text" id="name" name="name" value="">
+		<br><br>
+		<label for="description">Descripción:</label>
+		<br>
+		<textarea id="description" name="description" rows="10" cols="50"></textarea>
+		<br><br>
+		<label for="price">Precio:</label>
+		<input type="number" id="price" name="price" value="500">
+		<br><br>
+		<label for="imagen">Imagen:</label>
+		<input type="text" id="imagen" name="imagen" value="https://cdn.fakercloud.com/avatars/BenouarradeM_128.jpg">
+		<br><br>
+		<label for="id">ID:</label>
+		<input type="text" id="id" name="id" value="">
+		<br><br>
+		<label for="colorPrimary">Color primario:</label>
+		<input type="color" id="colorPrimary" name="colorPrimary" value="#c38666">
+		<br><br>
+		<label for="colorSecondary">Color secundario:</label>
+		<input type="color" id="colorSecondary" name="colorSecondary" value="#747db2">
+		<br><br>
+		<input type="button" value="Enviar" onclick="enviarSolicitudPOST()">
+	</form>
+
+	<script>
+
+		var HOST_API = `https://domiburguer.com/api/`
+		if (this.origin.includes('127.0.0.1') || this.origin.includes('localhost')) HOST_API = `http://localhost:8087/api/`
+
+		let loginDomi = JSON.parse(localStorage.getItem('login-domi'))
+		if (!loginDomi) {
+			window.location.href = "/401"
+
+		}
+		var token = `Bearer ${loginDomi.token}`
+
+		function enviarSolicitudPOST() {
+			const body = {
+				type: document.getElementById("type").value,
+				name: document.getElementById("name").value,
+				description: document.getElementById("description").value,
+				price: parseInt(document.getElementById("price").value),
+				imagen: document.getElementById("imagen").value,
+				colorPrimary: document.getElementById("colorPrimary").value,
+				colorSecondary: document.getElementById("colorSecondary").value
+			};
+			fetch(`${HOST_API}productos`, {
+				method: 'POST',
+				body: JSON.stringify(body),
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: token
+
+				}
+			})
+				.then(response => response.json())
+				.then(data => console.log(data))
+				.catch(error => console.error(error));
+		}
+	</script>
+</body>
+
+</html>

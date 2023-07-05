@@ -1,0 +1,6 @@
+runtime: nodejs16
+automatic_scaling:
+  min_instances: 1
+
+runtime_config:
+  project: [domiburguer]

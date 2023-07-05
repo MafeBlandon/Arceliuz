@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Pide Tu Domi</title>
+
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="./../otros/logo_32x32-05.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="shortcut icon" href="./../otros/logo_32x32-05.png"
+		autor="Hamburguesa iconos creados por Freepik - Flaticon">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="./../otros/logo_32x32-05.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./../otros/logo_32x32-05.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./../otros/logo_32x32-05.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<meta name="theme-color" content="#ffffff">
+
+
+	<!-- Importar la librería de Bootstrap y la API de Google Maps -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Lato&display=swap" rel="stylesheet">
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Silkscreen&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+		.navbar{
+			
+			width:  30px;
+			height: 76px;
+			left: 10px;
+			top: 10px;
+			border-radius: 28px;
+			
+			mix-blend-mode: normal;
+			border: 1px solid #000000;
+			filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+			}
+
+			@media (min-width: 768px) {
+			.navbar {
+				width: 99%;
+			}
+			}
+
+			.imagen{
+			position: absolute;
+			width: 38px;
+			height: 38px;
+			left: 32px; 
+			top: 14px;
+			}
+
+			.letra{
+			position: absolute;
+			width: 201px;
+			height: 20px;
+			left: 92px;
+			top: 23px;
+			
+			/* Body sm / SemiBold */
+			
+			
+			}
+
+			.letraInterior{
+			text-decoration: none;
+			margin-bottom: 10px;
+			font-family: 'Inter', sans-serif;
+			font-style: normal;
+			font-weight: bolder;
+			font-size: 14px;
+			line-height: 20px;
+			
+			/* identical to box height, or 143% */
+			
+			font-feature-settings: 'liga' off;
+			
+			color: #A60606;
+			}
+			.dropdown-menu {
+			
+			display: none;
+			}
+
+			.dropdown{
+				position: absolute;
+			width: 201px;
+			height: 20px;
+			left: 90%;
+			top: 23px;
+
+			}
+
+			.dropdown:hover .dropdown-menu,
+			.dropdown:focus .dropdown-menu {
+			display: block;
+			}
+
+			.letragrande{
+			position: absolute;
+			width: 646px;
+			height: 185px;
+			left: 3%;
+			top: 408px;
+			padding: 10px;
+			
+			
+			font-family: 'Inter', sans-serif;
+			font-style: normal;
+			font-weight: 100;
+			font-size: 70px;
+			line-height: 69px;
+			/* or 111% */
+
+			display: flex;
+			align-items: flex-end;
+			text-align: center;
+			font-feature-settings: 'liga' off;
+
+			color: #000000;
+			}
+			.imagendos{
+			
+			margin-left: 63%;
+			margin-top: 15px;
+			width: 400px;
+			height: 480px;
+			border-radius: 69px;
+			}
+
+
+			.boton {
+			position: absolute;
+			font-family: 'Inter', sans-serif;
+			margin-left: 71%; 
+
+			width: 228px;
+			height: 63px;
+			
+			
+			background-color:#A60606;
+			color: white;
+			font-size: 16px;
+			border: none;
+			border-radius: 5px;
+			margin-top: 40%;
+			}
+			.boton:hover {
+			background-color: #e7b53e;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+			}
+			.artesanal{
+			
+			color:#A60606;
+
+			}
+
+
+		
+		@font-face {
+			font-family: 'ChieezyBurger';
+			src:
+				url('./../otros/fuentes/ChieezyBurger-Regular.ttf') format('woff2');
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'Montserrat-Regular';
+			src:
+				url('./../otros/fuentes/Montserrat-Regular.ttf') format('woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'Montserrat-ExtraBold';
+			src:
+				url('./../otros/fuentes/Montserrat-ExtraBold.ttf') format('woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'Montserrat-BlackItalic';
+			src:
+				url('./../otros/fuentes/Montserrat-BlackItalic.ttf') format('woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+
+		body {
+			font-family: 'Montserrat', sans-serif;
+
+			color: #130e0e;
+		}
+
+		body {
+			background-image: url("./../img/fondo\ hamburguesa.jpeg");
+			background-repeat: repeat;
+			background-size: 400%;
+			/*la imagen se reducirá al 50% de su tamaño original */
+		}
+
+	/*para dispositivos móviles */
+		@media (max-width: 767px) {
+			body {
+				background-image: url("./../img/pizarra.jpg");
+				background-repeat: repeat;
+				background-size: 100%;
+				opacity: 1;
+			}
+		}
+
+		/*para escritorio */
+		@media (min-width: 768px) {
+			body {
+				background-image: url("./../img/pizarra.jpg");
+				background-repeat: repeat;
+				background-size: 100%;
+				background-position-y: 70px;
+				opacity: 1;
+			}
+		}
+
+		.money::before {
+			content: "$";
+		}
+
+		@media (max-width: 768px) {
+			.tipografiaExtraBold td:first-child {
+				max-width: 100px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+
+			.hoal {
+				max-width: 100px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+
+
+		.card {
+			color: black;
+			margin: auto;
+			margin-bottom: 20px;
+			padding: 20px;
+			
+
+		}
+
+		#map {
+			color: black;
+
+		}
+
+		#pedido-modal {
+			color: black;
+
+		}
+
+
+
+		input[type="text"],
+		input[type="tel"],
+		select,
+		#formaPago,
+		#comentario {
+			background-color: rgba(255, 255, 255, 0.7);
+			/* blanco con 70% de opacidad */
+
+
+			font-family: 'Poppins', sans-serif;
+			font-size: 20px;
+
+		}
+
+		label {
+			font-size: 17px;
+
+		}
+
+		.tipografiaBold {
+
+			font-family: 'Inter Tight', sans-serif;
+			font-size: 15px;
+		}
+
+		.tipografiaExtraBold {
+
+			font-family: 'Montserrat-ExtraBold', sans-serif;
+			font-size: 16px;
+		}
+
+		.tipografiaBlackItalic {
+
+			font-family: 'Montserrat-BlackItalic', sans-serif;
+			font-size: 16px;
+		}
+
+		.tipografiaMontserrat-Regular {
+
+			font-family: 'Montserrat-Regular', sans-serif;
+			font-size: 16px;
+		}
+
+
+
+
+		/* Estilo para el contenedor del mapa */
+		#map {
+			height: 200px;
+			width: 100;
+		}
+
+		.btn-producto {
+			height: 200px;
+			width: 100%;
+			background-size: cover;
+			background-position: center;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+		.div-pedido {
+			width: 100%;
+
+		}
+
+		.button {
+			position: relative;
+		}
+
+		.button span {
+			position: absolute;
+			top: 5%;
+			right: 5%;
+		}
+
+		.alert {
+			display: none;
+			background-color: #ff0000;
+			color: #ffffff;
+			padding: 10px;
+			margin: 10px 0;
+		}
+
+		.flot {
+			/* background-color: rgb(255, 255, 255); */
+			padding: 10px 20px;
+			border-radius: 10px;
+			font-size: 1.2rem;
+		}
+
+		.contenido-primario {
+			margin-bottom: 90px;
+		
+			/* Margen inferior igual a la altura del botón fijo */
+			/* Margen inferior igual a la altura del botón fijo */
+
+		}
+
+		.item-details {
+			display: none;
+		}
+
+		.botonDeProducto {
+			height: 2rem;
+			width: 2rem;
+			margin-bottom: 20px;
+		}
+
+		.tipografiaDeTituloPeroPeque {
+			font-family: 'Montserrat-BlackItalic', sans-serif;
+			font-size: 21px;
+		}
+
+		
+		/*para dispositivos móviles */
+		@media (max-width: 767px) {
+			.contenedorfor{
+				padding: 0px;
+			}
+		}
+
+		/*para escritorio */
+		@media (min-width: 768px) {
+			.contenedorfor{
+				background-color: rgb(255, 255, 255); /* Color de fondo con opacidad */
+				border-radius: 80px; /* Radio de esquina del borde */
+				box-shadow: 0 0 10px rgba(21, 19, 19, 0.9); /* Sombra difuminada */
+				padding: 10px; /* Espaciado interno para separar el contenido del borde */
+				width:800px;
+				
+				margin-top: 90px;
+				margin-bottom: 30px;
+			}
+			.contenedor-principal {
+				display: flex; /* Activa el modelo de diseño flexible */
+ 				 justify-content: center;
+			}
+		}
+
+		.hamburgu{
+			font-size: 18px;
+			
+		}
+		.comb{
+			font-size: 18px;
+
+		}
+	
+	</style>
+</head>
+
+
+<body>
+	
+  		<div class="contenedor-principal ">
+			<div class="contenedorfor">
+				<div class="container contenido-primario ">
+					<h1 class="d-flex justify-content-center   " style="margin-top: 30px;  margin-bottom: 40px; font-size: 30px;" >REALIZA TU PEDIDO</h1>
+					<div class="d-flex justify-content-center">
+						<div class="col-md-10 ">
+							<!-- Formulario -->
+							<form id="form">
+								<div class="form-group">
+									<label for="nombre">NOMBRE COMPLETO</label>
+									<input type="text" class="form-control" id="nombre" name="name" placeholder="Eje. Sara Restrepo" required>
+								</div>
+								<div class="form-group">
+									<label for="telefono">TELÉFONO</label>
+									<input type="tel" class="form-control" id="telefono" minlength="9" name="phone"
+										placeholder="Eje. 3018500471" required>
+								</div>
+								<div class="form-group">
+
+									<label for="direccion" class="">DIRECCIÓN <div class="tipografiaBold">Escribe la direccion (con
+											el piso), selecciona
+											una opcion.
+											De lo contrario da click en el boton de GPS que saldra</div>
+										<div id="alertDireccion" class="alert alert-danger" role="alert">
+											La direccion no es valida</div>
+									</label>
+									<div class="d-flex align-items-center">
+										<input type="text" class="form-control" id="autocompleteInput" name="adress"
+											placeholder="Eje. calle 102b # 75 a 11 piso 2" required>
+
+										<button type="button" onclick="obtenerUbicacion()" id="btn-ubicacion" style="display: none;"
+											class="btn btn-primary">GPS</button>
+									</div>
+									<div id="smallPedirGPS" class="alert alert-danger my-3" role="alert" style="display: none;">
+										<small>Preciona el boton de gps </small>
+									</div>
+
+
+									<br>
+									<div id="map" style="display: none"></div>
+								</div>
+								<div class="">
+									<label for="" class="div-pedido ">SELECCIONA TUS PRODUCTOS
+										<input id="pedido" name="prodId" type="hidden" value="">
+										<div class="container pedidos_agregado">
+											<div class="row ">
+												<div class="col card">
+													<div class="d-flex justify-content-center">
+														<h5 style="margin-top: 5%;  " class="hamburgu">HAMBURGUESA</h5>
+													</div>
+													<button type="button" class="btn btn-producto button" onclick="añidirPedido('Hamburguesa')"
+														style="background-image: url('./../img/Hmaburguea_1080x1080.png') ;">
+														<span id="hamburguesaCantida" class="font-weight-bold ">0</span></button>
+													<div class="d-flex justify-content-around  ">
+														<button type="button" class="botonDeProducto btn btn-sm  btn-secondary float-right "
+															onclick="añidirPedido('Hamburguesa', false)">-</button>
+														<button type="button" class="botonDeProducto btn btn-sm  btn-secondary float-right "
+															onclick="añidirPedido('Hamburguesa', true)">+</button>
+													</div>
+												</div>
+												<div class="col card">
+													<div class="d-flex justify-content-center">
+														<h5 style="margin-top: 5%;" class="comb">COMBO</h5>
+													</div>
+													<button type="button" class="btn btn-producto button" onclick="añidirPedido('Combo')"
+														style="background-image: url('./../img/Combo_1080x1080_GRANDE.png');">
+														<span id="comboCantida" class="font-weight-bold ">0</span></button>
+													<div class="d-flex justify-content-around ">
+														<button type="button" class="botonDeProducto btn btn-sm  btn-secondary float-right "
+															onclick="añidirPedido('Combo', false)">-</button>
+														<button type="button" class="botonDeProducto btn btn-sm  btn-secondary float-right "
+															onclick="añidirPedido('Combo', true)">+</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</label>
+								</div>
+								<div class="form-group">
+									<label for="formaPago">FORMA DE PAGO</label>
+									<select class="form-control" id="formaPago" required>
+										<option>Efectivo</option>
+										<option>Transferencia</option>
+										<!-- <option>Transferencia</option> -->
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="comentario">NOTAS, ESPCIFICACIONES Y COMENTARIOS</label>
+									<textarea class="form-control " id="comentario" rows="1"
+										placeholder="Eje. devuelta de $50.000"></textarea></textarea>
+								</div>
+							</form>
+							<hr>
+							<!-- el id es para cuando el formulario sea valido que se muestre en toda la pantalla el resumen  -->
+							<div id="divFloatButon" class="card">
+								<div class="card-body ">
+									<h5 class="card-title" style="font-size: 20px;">RESUMEN DE PEDIDO</h5>
+									<div id="totalResumido">
+
+
+										<div id="ulListaResumen"></div>
+
+
+										<div class="list-group-item d-flex justify-content-between">
+											<span>TOTAL </span> <strong class="tipografiaExtraBold money" id="totaResumen">0</strong>
+										</div>
+
+									</div>
+
+									<div class="">
+										<div id="aletaForm"></div>
+										<div class=" flot d-flex justify-content-center">
+											<button type="button" class=" btn btn-primary " onclick="botonEnviar()">ENVIAR
+												PEDIDO</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	<div class="modal fade" id="pedido-modal" tabindex="-1" role="dialog" aria-labelledby="pedido-modal-label"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="pedido-modal-label">RESUMEN DE PEDIDO</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!-- Agrega aquí el contenido del resumen del pedido -->
+
+					<div id="resumenPopUp" class="container"></div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" onclick="popUpActivo= false"
+						data-dismiss="modal">CERRAR</button>
+					<button type="button" onclick="enviarPedido()" class="btn  btn-primary">CONFIRMAR PEDIDO</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="loader-container">
+		<div id="loader" class="loader">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+
+	<!-- //circulo de carga -->
+	<style>
+		#loader {
+			position: fixed;
+			display: none;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 9999;
+			/* Valor alto para que se sobreponga */
+			height: 64px;
+			width: 64px;
+		}
+
+		.loader div {
+			transform-origin: 32px 32px;
+			animation: load 1.3s linear infinite;
+		}
+
+		.loader div::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 3px;
+			left: 29px;
+			width: 5px;
+			height: 14px;
+			background-color: #6ad4f5;
+			border-radius: 20%;
+		}
+
+		.loader div:nth-child(1) {
+			transform: rotate(0deg);
+			animation-delay: -1.2s;
+		}
+
+		.loader div:nth-child(2) {
+			transform: rotate(30deg);
+			animation-delay: -1.1s;
+		}
+
+		.loader div:nth-child(3) {
+			transform: rotate(60deg);
+			animation-delay: -1.0s;
+		}
+
+		.loader div:nth-child(4) {
+			transform: rotate(90deg);
+			animation-delay: -0.9s;
+		}
+
+		.loader div:nth-child(5) {
+			transform: rotate(120deg);
+			animation-delay: -0.8s;
+		}
+
+		.loader {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			height: 64px;
+			width: 64px;
+		}
+
+		.loader div {
+			transform-origin: 32px 32px;
+			animation: load 1.3s linear infinite;
+		}
+
+		opcion1 .loader div::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 3px;
+			left: 29px;
+			width: 5px;
+			height: 14px;
+			background-color: #6ad4f5;
+			border-radius: 20%;
+		}
+
+		.loader div:nth-child(1) {
+			transform: rotate(0deg);
+			animation-delay: -1.2s;
+		}
+
+		.loader div:nth-child(2) {
+			transform: rotate(30deg);
+			animation-delay: -1.1s;
+		}
+
+		.loader div:nth-child(3) {
+			transform: rotate(60deg);
+			animation-delay: -1.0s;
+		}
+
+		.loader div:nth-child(4) {
+			transform: rotate(90deg);
+			animation-delay: -0.9s;
+		}
+
+		.loader div:nth-child(5) {
+			transform: rotate(120deg);
+			animation-delay: -0.8s;
+		}
+
+		.loader div:nth-child(6) {
+			transform: rotate(150deg);
+			animation-delay: -0.7s;
+		}
+
+		.loader div:nth-child(7) {
+			transform: rotate(180deg);
+			animation-delay: -0.6s;
+		}
+
+		.loader div:nth-child(8) {
+			transform: rotate(210deg);
+			animation-delay: -0.5s;
+		}
+
+		.loader div:nth-child(9) {
+			transform: rotate(240deg);
+			animation-delay: -0.4s;
+		}
+
+		.loader div:nth-child(10) {
+			transform: rotate(270deg);
+			animation-delay: -0.3s;
+		}
+
+		.loader div:nth-child(11) {
+			transform: rotate(300deg);
+			animation-delay: -0.2s;
+		}
+
+		.loader div:nth-child(12) {
+			transform: rotate(330deg);
+			animation-delay: -0.1s;
+		}
+
+		@keyframes load {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		.loader div:nth-child(6) {
+			transform: rotate(150deg);
+			animation-delay: -0.7s;
+		}
+
+		.loader div:nth-child(7) {
+			transform: rotate(180deg);
+			animation-delay: -0.6s;
+		}
+
+		.loader div:nth-child(8) {
+			transform: rotate(210deg);
+			animation-delay: -0.5s;
+		}
+
+		.loader div:nth-child(9) {
+			transform: rotate(240deg);
+			animation-delay: -0.4s;
+		}
+
+		.loader div:nth-child(10) {
+			transform: rotate(270deg);
+			animation-delay: -0.3s;
+		}
+
+		.loader div:nth-child(11) {
+			transform: rotate(300deg);
+			animation-delay: -0.2s;
+		}
+
+		.loader div:nth-child(12) {
+			transform: rotate(330deg);
+			animation-delay: -0.1s;
+		}
+
+		@keyframes load {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+	</style>
+
+
+
+	<!-- Importar la librería de jQuery y el archivo de JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<script src="./../js/formularioPedidos.js"></script>
+	<script src="./../js/formularioPedidosMapa.js"></script>
+
+	<script async="false" type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAppp0ve_fH4pfM6vQvbI_LW0B8hbNg7IU&libraries=places&v=weekly&callback=initMap"
+		defer></script>
+	<script src="./../js/especificacines.js"></script>
+
+</body>
+
+</html>

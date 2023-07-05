@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Elemento redimensionable</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+    .resize {
+      border: 2px solid black;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+  </style>
+  <script>
+    $(function() {
+      $(".resize").draggable({
+        resize: true,
+        stop: function(event, ui) {
+          $(this).css("width", ui.size.width);
+          $(this).css("height", ui.size.height);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="resize"></div>
+</body>
+</html>

@@ -1,0 +1,1686 @@
+{
+	"info": {
+		"_postman_id": "9d29817c-9449-4bb7-857f-f452a7f8b625",
+		"name": "Arcelius",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16602172"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Add user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"cocina\",\n    \"password\": \"hola\",\n    \"role\": \"cocinero\",\n    \"name\": \"Pedroo\",\n    \"phone\": \"3054489594\",\n    \"email\": \"pmonrtes@gima.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/user",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/user",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1RMwhVwlQ1jApf5dTwbt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/user/id",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find user user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"pedro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/user/user",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find filler",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"name\",\n    \"value\": \"pedro\",\n    \"options\": \"==\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/user/filstesr",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"filstesr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"{{$randomWord}}\",\n    \"password\": \"hola\",\n    \"role\": \"admin\",\n    \"name\": \"pedrito\",\n    \"phone\": \"123456789\",\n    \"email\": \"pmonrtes@gima.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/user/",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estados",
+			"item": [
+				{
+					"name": "Calientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/?estado=Calientes",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								""
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "Calientes"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Preparar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/?estado=Preparando",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								""
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "Preparando"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Espera",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/?estado=Espera",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								""
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "Espera"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Entregados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/?estado=entregados",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								""
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "entregados"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Despachados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/?estado=Despachados",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								""
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "Despachados"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/?estado=Eliminados",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								""
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "Eliminados"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/role/?role=admin",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"role",
+								""
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "admin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": [\n        {\n            \"key\": \"fee\",\n            \"value\": \"Efectivo\",\n            \"options\": \"==\"\n        },\n        {\n            \"key\": \"numeroDeOrdenDelDia\",\n            \"value\": 10,\n            \"options\": \">=\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/filter",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Estado",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": [\n        {\n            \"key\": \"estado\",\n            \"value\": \"Facturados\",\n            \"options\": \"!=\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/filter",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recepcion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/recepcion",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"recepcion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "preparar post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/preparar?idPedido=euCBVlNRR2W6vOPcgBc3",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"preparar"
+							],
+							"query": [
+								{
+									"key": "idPedido",
+									"value": "euCBVlNRR2W6vOPcgBc3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Espera post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/espera?idPedido={{ID_PEIDIDO}}",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"espera"
+							],
+							"query": [
+								{
+									"key": "idPedido",
+									"value": "{{ID_PEIDIDO}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Despachar post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/despachar?idPedido={{ID_PEIDIDO}}",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"despachar"
+							],
+							"query": [
+								{
+									"key": "idPedido",
+									"value": "{{ID_PEIDIDO}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Entregado post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/entregado?idPedido={{ID_PEIDIDO}}",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"entregado"
+							],
+							"query": [
+								{
+									"key": "idPedido",
+									"value": "{{ID_PEIDIDO}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Facturado post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/facturado?idPedido={{ID_PEIDIDO}}&idDomiciliario={{ID_DOMICILIARIO}}",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"facturado"
+							],
+							"query": [
+								{
+									"key": "idPedido",
+									"value": "{{ID_PEIDIDO}}"
+								},
+								{
+									"key": "idDomiciliario",
+									"value": "{{ID_DOMICILIARIO}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimininados",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/estados/eliminados?idPedido=CSBxMmDoVWkWwAscHxkm",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"estados",
+								"eliminados"
+							],
+							"query": [
+								{
+									"key": "idPedido",
+									"value": "CSBxMmDoVWkWwAscHxkm"
+								},
+								{
+									"key": "idDomiciliario",
+									"value": "{{ID_DOMICILIARIO}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "Add Pedidos",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"phone\": \"5705485487\",\n    \"order\": [\n        {\n            \"id\": \"1\",\n            \"modifique\": [{\"id\": \"5\"}]\n        }\n    ],\n    \"address\": {\n        \"address_complete\": \"calle 101 b  # 74 b {{$randomAlphaNumeric}}\",\n        \"verified\": false,\n        \"coordinates\": {\n            \"lat\": 6.2999347,\n            \"lng\": -75.5764272\n        }\n    },\n    \"coordenadas\": {\n        \"lat\": \"-7585757\",\n        \"lng\": \"1.2512\"\n    },\n    \"fee\": \"Efectivo\",\n    \"note\": \"{{$randomWords}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/pedidos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Pedidos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/pedidos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Pedidos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1RMwhVwlQ1jApf5dTwbt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/pedidos/",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"pedidos",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6TlEpjlp6c922pzNxLng",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find filler",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"fee\",\n    \"value\": \"Efectivo\",\n    \"options\": \"==\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/pedidos/filter",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"pedidos",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find  historialDia",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "key",
+									"value": "type",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "options",
+									"value": "==",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "value",
+									"value": "Adicion",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/pedidos/historialDia",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"pedidos",
+								"historialDia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"{{$randomWord}}\",\n    \"password\": \"hola\",\n    \"role\": \"admin\",\n    \"name\": \"pedrito\",\n    \"phone\": \"123456789\",\n    \"email\": \"pmonrtes@gima.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/pedidos/",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"pedidos",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"Producto\",\n    \"id\": 1,\n    \"name\": \"Combo\",\n    \"description\": \"Hamburguesa artesanal con papas a la francesa con paprika\",\n    \"price\": 19500,\n    \"imagen\": \"{{$randomAvatarImage}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"Adicion\",\n    \"name\": \"salsita de ajo\",\n    \"description\": \"salsa de ajo echa en de aal casa\",\n    \"price\": 500,\n    \"imagen\": \"{{$randomAvatarImage}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finds",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1RMwhVwlQ1jApf5dTwbt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos/id",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find filler",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "key",
+									"value": "type",
+									"type": "text"
+								},
+								{
+									"key": "options",
+									"value": "==",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "Adicion",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos/filter?key=type&options===&value=Adicion",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "type"
+								},
+								{
+									"key": "options",
+									"value": "=="
+								},
+								{
+									"key": "value",
+									"value": "Adicion"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch producto",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5\",\n    \"type\": \"Adicion\",\n    \"colorPrimary\": \"{{$randomHexColor}}\",\n    \"colorSecundary\": \"{{$randomHexColor}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Domiciliario",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"Adicion\",\n    \"name\": \"salsita de ajo\",\n    \"description\": \"salsa de ajo echa en de aal casa\",\n    \"price\": 500,\n    \"imagen\": \"{{$randomAvatarImage}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/domiciliarios",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"domiciliarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finds",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/domiciliarios",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"domiciliarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "History",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/domiciliarios/history?idDomiciliario={{ID_DOMICILIARIO}}",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"domiciliarios",
+								"history"
+							],
+							"query": [
+								{
+									"key": "idDomiciliario",
+									"value": "{{ID_DOMICILIARIO}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Home",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_DOMICILIARIO}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/domiciliarios/home?idDomiciliario=OrxGbyE2epgilmKZkONk",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"domiciliarios",
+								"home"
+							],
+							"query": [
+								{
+									"key": "idDomiciliario",
+									"value": "OrxGbyE2epgilmKZkONk"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos asiganados",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJocmgwNVgycU0yQzQ0bk1XbVdUSiIsInJvbGUiOiJkb21pY2lsaWFyaW8iLCJpYXQiOjE2ODMzOTE4NDd9.-GzBdpAw6rhrhkCas8flb9ijB0sCdG6vlPyf7xWX3GA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/domiciliarios/pedidosAsignados",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"domiciliarios",
+								"pedidosAsignados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos asiganados Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_DOMICILIARIO}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/domiciliarios/reasignacion?idDomiciliario=hrh05X2qM2C44nMWmWTJ&idPedido=Pwkt5GghWYR1L5UiYnQt",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"domiciliarios",
+								"reasignacion"
+							],
+							"query": [
+								{
+									"key": "idDomiciliario",
+									"value": "hrh05X2qM2C44nMWmWTJ"
+								},
+								{
+									"key": "idPedido",
+									"value": "Pwkt5GghWYR1L5UiYnQt"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pagarDomicilios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/domiciliarios/history?idDomiciliario={{ID_DOMICILIARIO}}",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"domiciliarios",
+								"history"
+							],
+							"query": [
+								{
+									"key": "idDomiciliario",
+									"value": "{{ID_DOMICILIARIO}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1RMwhVwlQ1jApf5dTwbt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/domiciliarios/?idDomiciliario={{ID_DOMICILIARIO}}",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"domiciliarios",
+								""
+							],
+							"query": [
+								{
+									"key": "idDomiciliario",
+									"value": "{{ID_DOMICILIARIO}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find filler",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "key",
+									"value": "type",
+									"type": "text"
+								},
+								{
+									"key": "options",
+									"value": "==",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "Adicion",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos/filter?key=type&options===&value=Adicion",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "type"
+								},
+								{
+									"key": "options",
+									"value": "=="
+								},
+								{
+									"key": "value",
+									"value": "Adicion"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch producto",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5\",\n    \"type\": \"Adicion\",\n    \"colorPrimary\": \"{{$randomHexColor}}\",\n    \"colorSecundary\": \"{{$randomHexColor}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "asignar pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/domiciliarios/asignacion/?idDomiciliario={{ID_DOMICILIARIO}}&idPedido={{ID_PEIDIDO}}",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"domiciliarios",
+								"asignacion",
+								""
+							],
+							"query": [
+								{
+									"key": "idDomiciliario",
+									"value": "{{ID_DOMICILIARIO}}"
+								},
+								{
+									"key": "idPedido",
+									"value": "{{ID_PEIDIDO}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"Adicion\",\n    \"name\": \"salsita de ajo\",\n    \"description\": \"salsa de ajo echa en de aal casa\",\n    \"price\": 500,\n    \"imagen\": \"{{$randomAvatarImage}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/pedidos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finds",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/pedidos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1RMwhVwlQ1jApf5dTwbt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos/id?id=6TlEpjlp6c922pzNxLng",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6TlEpjlp6c922pzNxLng"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find filler",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/pedidos/filter?key=date&options=>=&value=2023-04-27T03:00:00.000Z",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"pedidos",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "date"
+								},
+								{
+									"key": "options",
+									"value": ">="
+								},
+								{
+									"key": "value",
+									"value": "2023-04-27T03:00:00.000Z"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch producto",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5\",\n    \"type\": \"Adicion\",\n    \"colorPrimary\": \"{{$randomHexColor}}\",\n    \"colorSecundary\": \"{{$randomHexColor}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}{{PORT}}/api/productos",
+							"host": [
+								"{{HOST}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"domi\",\n    \"password\": \"hola\",\n    \"role\": \"domiciliario\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}{{PORT}}/api/login",
+					"host": [
+						"{{HOST}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "PORT",
+			"value": ":8087"
+		},
+		{
+			"key": "ID_PEDIDO",
+			"value": "bcqog5B810O1uOuODCm0"
+		},
+		{
+			"key": "ID_DOMICILIARIO",
+			"value": "OrxGbyE2epgilmKZkONk"
+		}
+	]
+}

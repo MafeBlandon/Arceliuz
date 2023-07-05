@@ -1,0 +1,22 @@
+{
+  "name": "Domiburguer",
+  "short_name": "Domiburguer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff6347",
+  "icons": [
+    {
+      "src": "/otros/logo_32x32-05.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/otros/LOGO_DOMI-03.png",
+      "sizes": "1074x1015",
+      "type": "image/png"
+    }
+  ],
+  "description": "¡Haz tu pedido de hamburguesas , creamos nuestro porpio sabor!",
+  "orientation": "portrait"
+}
